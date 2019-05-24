@@ -1,0 +1,32 @@
+{
+    "name": "symenvsync/symfony-env-sync",
+    "description": "A package that makes sure thah your .env file is in sync with your .evn.dist",
+    "keywords": ["env", ".env", "sync", "symfony env sync"],
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "SymEnvSync\\SymfonyEnvSync\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SymEnvSync\\SymfonyEnvSync\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "symfony/dotenv": "*",
+        "symfony/console": "*",
+        "phpunit/phpunit": "^8.1"
+    },
+    "require-dev": {
+        "symfony/test-pack": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vadim Moldovanu",
+            "email": "v.moldovanu@vr-dev.team"
+        }
+    ]
+}
