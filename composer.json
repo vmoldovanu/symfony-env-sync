@@ -1,5 +1,5 @@
 {
-    "name": "symenvsync/symfony-env-sync",
+    "name": "vmoldovanu/symfony-env-sync",
     "description": "A package that makes sure thah your .env file is in sync with your .evn.dist",
     "keywords": ["env", ".env", "sync", "symfony env sync"],
     "type": "library",
