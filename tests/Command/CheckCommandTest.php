@@ -26,7 +26,6 @@ class CheckCommandTest extends TestCase
 
         $reader = new EnvFileReader();
         $this->syncService = new SyncService($reader);
-//        $this->root = __DIR__ . '/../..';
         $this->root = (new Kernel('prod', false))->getProjectDir();
         $application = new Application();
         $application->add(new CheckCommand($this->syncService));
