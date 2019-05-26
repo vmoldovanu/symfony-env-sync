@@ -16,8 +16,7 @@
     "require": {
         "php": ">=7.1",
         "symfony/dotenv": "*",
-        "symfony/console": "*",
-        "phpunit/phpunit": "*"
+        "symfony/console": "*"
     },
     "require-dev": {
         "symfony/test-pack": "*"
