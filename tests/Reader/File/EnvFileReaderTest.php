@@ -1,7 +1,6 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use SymEnvSync\SymfonyEnvSync\Kernel;
 use SymEnvSync\SymfonyEnvSync\Reader\File\EnvFileReader;
 use SymEnvSync\SymfonyEnvSync\Reader\File\FileRequired;
 use SymEnvSync\SymfonyEnvSync\Reader\ReaderInterface;
@@ -18,7 +17,7 @@ class EnvFileReaderTest extends TestCase
     protected function setUp(): void
     {
         $this->reader = new EnvFileReader();
-        $this->root = (new Kernel('prod', false))->getProjectDir();
+        $this->root = __DIR__ . '/../../..';
     }
 
     public function testReturnArrayFromFileContent(): void

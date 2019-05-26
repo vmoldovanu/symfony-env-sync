@@ -2,7 +2,6 @@
 
 use PHPUnit\Framework\TestCase;
 use SymEnvSync\SymfonyEnvSync\Command\DiffCommand;
-use SymEnvSync\SymfonyEnvSync\Kernel;
 use SymEnvSync\SymfonyEnvSync\Reader\File\EnvFileReader;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -19,8 +18,7 @@ class DiffCommandTest extends TestCase
     {
         parent::setUp();
         $reader = new EnvFileReader();
-        $this->root = (new Kernel('prod', false))->getProjectDir();
-
+        $this->root = __DIR__ . '/../..';
         $application = new Application();
         $application->add(new DiffCommand($reader));
         $command = $application->find('env:diff');

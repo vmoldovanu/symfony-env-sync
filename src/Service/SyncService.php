@@ -1,8 +1,8 @@
 <?php
 
-namespace SymEnvSync\SymfonyEnvSync;
+namespace SymEnvSync\SymfonyEnvSync\Service;
 
-
+use SymEnvSync\SymfonyEnvSync\Exception\FileNotFound;
 use SymEnvSync\SymfonyEnvSync\Reader\ReaderInterface;
 
 class SyncService

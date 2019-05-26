@@ -3,9 +3,8 @@
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use SymEnvSync\SymfonyEnvSync\Command\CheckCommand;
-use SymEnvSync\SymfonyEnvSync\Kernel;
 use SymEnvSync\SymfonyEnvSync\Reader\File\EnvFileReader;
-use SymEnvSync\SymfonyEnvSync\SyncService;
+use SymEnvSync\SymfonyEnvSync\Service\SyncService;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -26,7 +25,7 @@ class CheckCommandTest extends TestCase
 
         $reader = new EnvFileReader();
         $this->syncService = new SyncService($reader);
-        $this->root = (new Kernel('prod', false))->getProjectDir();
+        $this->root = __DIR__ . '/../..';
         $application = new Application();
         $application->add(new CheckCommand($this->syncService));
         $command = $application->find('env:check');

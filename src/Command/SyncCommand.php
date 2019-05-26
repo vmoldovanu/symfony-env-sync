@@ -2,8 +2,8 @@
 
 namespace SymEnvSync\SymfonyEnvSync\Command;
 
-use SymEnvSync\SymfonyEnvSync\FileNotFound;
-use SymEnvSync\SymfonyEnvSync\SyncService;
+use SymEnvSync\SymfonyEnvSync\Exception\FileNotFound;
+use SymEnvSync\SymfonyEnvSync\Service\SyncService;
 use SymEnvSync\SymfonyEnvSync\Writer\WriterInterface;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -33,10 +33,11 @@ class SyncCommand extends BaseCommand
      *
      * @param SyncService $sync
      * @param WriterInterface $writer
+     * @param string|null $projectDir
      */
-    public function __construct(SyncService $sync, WriterInterface $writer)
+    public function __construct(SyncService $sync, WriterInterface $writer, string $projectDir = null)
     {
-        parent::__construct();
+        parent::__construct($projectDir);
         $this->sync = $sync;
         $this->writer = $writer;
     }

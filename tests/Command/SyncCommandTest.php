@@ -3,9 +3,8 @@
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use SymEnvSync\SymfonyEnvSync\Command\SyncCommand;
-use SymEnvSync\SymfonyEnvSync\Kernel;
 use SymEnvSync\SymfonyEnvSync\Reader\File\EnvFileReader;
-use SymEnvSync\SymfonyEnvSync\SyncService;
+use SymEnvSync\SymfonyEnvSync\Service\SyncService;
 use SymEnvSync\SymfonyEnvSync\Writer\File\EnvFileWriter;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -28,7 +27,7 @@ class SyncCommandTest extends TestCase
         $writer = new EnvFileWriter();
         $reader = new EnvFileReader();
         $this->syncService = new SyncService($reader);
-        $this->root = (new Kernel('prod', false))->getProjectDir();
+        $this->root = __DIR__ . '/../..';
         $application = new Application();
         $application->add(new SyncCommand($this->syncService, $writer));
         $command = $application->find('env:sync');

@@ -26,10 +26,11 @@ class DiffCommand extends BaseCommand
     /**
      * Create a new command instance.
      * @param ReaderInterface $reader
+     * @param string|null $projectDir
      */
-    public function __construct(ReaderInterface $reader)
+    public function __construct(ReaderInterface $reader, string $projectDir = null)
     {
-        parent::__construct();
+        parent::__construct($projectDir);
         $this->reader = $reader;
     }
 

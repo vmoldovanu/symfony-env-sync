@@ -2,8 +2,8 @@
 
 namespace SymEnvSync\SymfonyEnvSync\Command;
 
-use SymEnvSync\SymfonyEnvSync\FileNotFound;
-use SymEnvSync\SymfonyEnvSync\SyncService;
+use SymEnvSync\SymfonyEnvSync\Exception\FileNotFound;
+use SymEnvSync\SymfonyEnvSync\Service\SyncService;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -27,10 +27,11 @@ class CheckCommand extends BaseCommand
      * Create a new command instance.
      *
      * @param SyncService $sync
+     * @param string|null $projectDir
      */
-    public function __construct(SyncService $sync)
+    public function __construct(SyncService $sync, string $projectDir = null)
     {
-        parent::__construct();
+        parent::__construct($projectDir);
         $this->sync = $sync;
     }
 

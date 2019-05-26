@@ -2,7 +2,6 @@
 
 namespace SymEnvSync\SymfonyEnvSync\Command;
 
-use SymEnvSync\SymfonyEnvSync\Kernel;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,6 +9,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class BaseCommand extends Command
 {
+    private $projectDir;
+
+    /**
+     * BaseCommand constructor.
+     * @param string|null $projectDir
+     */
+    public function __construct(string $projectDir = null)
+    {
+        parent::__construct();
+        $this->projectDir = $projectDir;
+    }
+
     /**
      * @param InputInterface $input
      * @param OutputInterface $output
@@ -24,8 +35,8 @@ class BaseCommand extends Command
             }
         }
 
-        $src = $input->getOption('src') ?: $this->getProjectDir() . '/.env.dist';
-        $dest = $input->getOption('dest') ?: $this->getProjectDir(). '/.env';
+        $src = $input->getOption('src') ?: $this->projectDir . '/.env.dist';
+        $dest = $input->getOption('dest') ?: $this->projectDir. '/.env';
 
         return [$src, $dest];
     }
@@ -36,15 +47,5 @@ class BaseCommand extends Command
             ->addOption('src', null,InputOption::VALUE_OPTIONAL, 'Source env file')
             ->addOption('dest', null,InputOption::VALUE_OPTIONAL, 'Destination env file')
             ->addOption('reverse',null,InputOption::VALUE_OPTIONAL, 'Revers source and destination env files');
-    }
-
-    /**
-     * Gets the application root dir (path of the project's composer file).
-     *
-     * @return string The project root dir
-     */
-    public function getProjectDir(): string
-    {
-        return (new Kernel('prod', false))->getProjectDir();
     }
 }

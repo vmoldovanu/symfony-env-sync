@@ -1,5 +1,5 @@
 <?php
 
-namespace SymEnvSync\SymfonyEnvSync;
+namespace SymEnvSync\SymfonyEnvSync\Exception;
 
 class FileNotFound extends \Exception{}

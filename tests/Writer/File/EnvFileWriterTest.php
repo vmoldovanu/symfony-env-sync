@@ -1,7 +1,6 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use SymEnvSync\SymfonyEnvSync\Kernel;
 use SymEnvSync\SymfonyEnvSync\Writer\File\EnvFileWriter;
 use SymEnvSync\SymfonyEnvSync\Writer\WriterInterface;
 
@@ -17,7 +16,7 @@ class EnvFileWriterTest extends TestCase
     protected function setUp(): void
     {
         $this->writer = new EnvFileWriter();
-        $this->root = (new Kernel('prod', false))->getProjectDir();
+        $this->root = __DIR__ . '/../../..';
     }
 
     public function testAppendContentToFile(): void

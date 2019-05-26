@@ -2,9 +2,8 @@
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use SymEnvSync\SymfonyEnvSync\Kernel;
 use SymEnvSync\SymfonyEnvSync\Reader\ReaderInterface;
-use SymEnvSync\SymfonyEnvSync\SyncService;
+use SymEnvSync\SymfonyEnvSync\Service\SyncService;
 
 class SyncServiceTest extends TestCase
 {
@@ -27,7 +26,7 @@ class SyncServiceTest extends TestCase
 
     public function testReturnTheDifferenceBetweenFiles(): void
     {
-        $root = (new Kernel('prod', false))->getProjectDir();
+        $root = __DIR__ . '/../..';
         $source = $root . '/.source';
         $destination = $root . '/.dest';
         $this->readerInterface->expects($this->exactly(2))->method('read')->willReturn([
