@@ -92,7 +92,7 @@ class SyncCommand extends BaseCommand
 
                 $action->setErrorMessage('Action %s is invalid.');
 
-                $helper->ask($input, $output, $action);
+                $action = $helper->ask($input, $output, $action);
             }
 
             if ($action === self::NO) {
@@ -100,7 +100,7 @@ class SyncCommand extends BaseCommand
             }
 
             if ($action === self::CHANGE) {
-                $question = new Question(sprintf("Please choose a value for '%s' : ", $key));
+                $question = new Question(sprintf("Please choose a value for '%s' : ", $key), $diff);
                 $diff = $helper->ask($input, $output, $question);
             }
 
