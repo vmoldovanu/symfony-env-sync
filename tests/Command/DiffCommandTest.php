@@ -20,7 +20,7 @@ class DiffCommandTest extends TestCase
         $reader = new EnvFileReader();
         $this->root = __DIR__ . '/../..';
         $application = new Application();
-        $application->add(new DiffCommand($reader));
+        $application->add(new DiffCommand($reader, $this->root));
         $command = $application->find('env:diff');
         $this->commandTester = new CommandTester($command);
     }

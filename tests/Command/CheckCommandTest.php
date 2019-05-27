@@ -27,7 +27,7 @@ class CheckCommandTest extends TestCase
         $this->syncService = new SyncService($reader);
         $this->root = __DIR__ . '/../..';
         $application = new Application();
-        $application->add(new CheckCommand($this->syncService));
+        $application->add(new CheckCommand($this->syncService, $this->root));
         $command = $application->find('env:check');
         $this->commandTester = new CommandTester($command);
     }
@@ -67,7 +67,7 @@ class CheckCommandTest extends TestCase
         $this->assertSame(1, $this->commandTester->getStatusCode());
     }
 
-    public function testReverseMode()
+    public function testReverseMode(): void
     {
         // Arrange
         $env = "FOO=BAR\nBAR=BAZ\nBAZ=FOO";

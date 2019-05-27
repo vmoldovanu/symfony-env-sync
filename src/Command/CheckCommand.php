@@ -69,7 +69,7 @@ class CheckCommand extends BaseCommand
 
             return 1;
         } catch (FileNotFound $e) {
-
+            $output->writeln($e->getMessage());
         }
     }
 }

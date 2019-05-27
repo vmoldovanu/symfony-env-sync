@@ -29,7 +29,7 @@ class SyncCommandTest extends TestCase
         $this->syncService = new SyncService($reader);
         $this->root = __DIR__ . '/../..';
         $application = new Application();
-        $application->add(new SyncCommand($this->syncService, $writer));
+        $application->add(new SyncCommand($this->syncService, $writer, $this->root));
         $command = $application->find('env:sync');
         $this->commandTester = new CommandTester($command);
     }
