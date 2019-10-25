@@ -1,7 +1,6 @@
 {
     "name": "vmoldovanu/symfony-env-sync",
-    "description": "A package that makes sure than your .env file is in sync with your .evn.dist",
-    "keywords": ["env", ".env", "sync", "symfony env sync", "symfony synchronize", "symfony", "synchronize", "synchronization"],
+    "description": "A symfony package that makes sure that your .env file is in sync with your .evn.dist",
     "type": "library",
     "autoload": {
         "psr-4": {
