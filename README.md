@@ -8,7 +8,7 @@ Keep your .env in sync with your .env.dist or vice versa.
 
 It reads the .env.dist file and makes suggestions to fill your .env accordingly. 
 
-## Installation via Composer
+## Installation
 
 Start by requiring the package with composer
 
@@ -16,9 +16,17 @@ Start by requiring the package with composer
 composer require vmoldovanu/symfony-env-sync
 ```
 
-Then, if you use symfony 3, to enable the bundle add the `new SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle()` to your `app/AppKernel.php` file.
+Then, if you use symfony 3, to enable the bundle add the 
+```
+new SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle()
+``` 
+to your `app/AppKernel.php` file.
 
-Or, if you use symfony 4, add the `SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle::class => ['all' => true],` to your `config/bundles.php` file.
+Or, if you use symfony 4, add the 
+```
+SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle::class => ['all' => true],
+``` 
+to your `config/bundles.php` file.
 
 
 ## Usage
