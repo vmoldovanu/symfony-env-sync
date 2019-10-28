@@ -12,7 +12,7 @@ It reads the .env.dist file and makes suggestions to fill your .env accordingly.
 Installation
 -------------
 
-Add `vmoldovanu/symfony-env-sync` to your `composer.json` file:
+Add [`vmoldovanu/symfony-env-sync`](https://packagist.org/packages/vmoldovanu/symfony-env-sync) to your `composer.json` file:
 
 ```
 composer require vmoldovanu/symfony-env-sync
