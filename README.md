@@ -1,6 +1,7 @@
 
 
-# Symfony Env Sync
+Symfony Env Sync
+-------------
 
 This is the clone of [Laravel Env Sync](https://github.com/JulienTant/Laravel-Env-Sync) for Symfony
 
@@ -8,28 +9,39 @@ Keep your .env in sync with your .env.dist or vice versa.
 
 It reads the .env.dist file and makes suggestions to fill your .env accordingly. 
 
-## Installation
+Installation
+-------------
 
-Start by requiring the package with composer
+Add `vmoldovanu/symfony-env-sync` to your `composer.json` file:
 
 ```
 composer require vmoldovanu/symfony-env-sync
 ```
 
-Then, if you use symfony 3, to enable the bundle add the 
+#### Register the bundle: 
+**Symfony 3 Version:**  
+Register bundle into `app/AppKernel.php`:
+
+``` php
+public function registerBundles()
+{
+    return array(
+        // ...
+        new SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle(),
+    );
+}
 ```
-new SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle()
-``` 
-to your `app/AppKernel.php` file.
-
-Or, if you use symfony 4, add the 
+**Symfony 4 Version:**   
+Register bundle into `config/bundles.php`:  
+```php 
+return [
+    //...
+    SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle::class => ['all' => true],
+];
 ```
-SymEnvSync\SymfonyEnvSync\SymfonyEnvSyncBundle::class => ['all' => true],
-``` 
-to your `config/bundles.php` file.
 
-
-## Usage
+Usage
+-------------
 
 ### Sync your envs files
 
